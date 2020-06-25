@@ -121,7 +121,7 @@ func handleAppliance(w http.ResponseWriter, r *http.Request) {
 
 // SetupRoutes :
 func SetupRoutes(apiBasePath string) {
-	appliancesHandler := http.HandlerFunc(handleAppliance)
+	appliancesHandler := http.HandlerFunc(handleAppliances)
 	applianceHandler := http.HandlerFunc(handleAppliance)
 	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, path), cors.Middleware(appliancesHandler))
 	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath,path), cors.Middleware(applianceHandler))
