@@ -1,0 +1,59 @@
+<div class='card'>
+    <div class='card-header title'>
+        {{pageTitle}}
+    </div>
+    <div class="button-bar">
+        <button class="btn btn-primary grow" (click)="createNew()"><i class="fa fa-plus"></i> Add</button>
+    </div>
+    <div class='card-body'>
+        <h1 *ngIf='!sortedData || !sortedData.length'>Loading...</h1>
+        <div  class='table-responsive'>
+            <table matSort  class='table'>
+                <thead>
+                    <tr>
+                        <th mat-sort-header="model">
+                            Serial Number
+                        </th>
+                        <th mat-sort-header="brand">
+                            Name 
+                        </th>
+                        <th mat-sort-header="name">
+                            Brand
+                        </th>
+                        <th mat-sort-header="serial_number">
+                            Model
+                        </th>
+                        <th mat-sort-header="price">
+                            Status
+                        </th>
+                        <th mat-sort-header="onHand">
+                            Date Bought
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="navigateToAppliance(prod)" *ngFor="let prod of sortedData" class="mat-row"> 
+                        <td>
+                            {{prod.serial_number}}
+                        </td>
+                        <td>
+                            {{prod.appliance_name}}
+                        </td>
+                        <td>
+                            {{prod.brand}}
+                        </td>
+                        <td>
+                            {{prod.model}}
+                        </td>
+                        <td>
+                            {{prod.status}}
+                        </td>
+                        <td>
+                            {{prod.date_bought}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

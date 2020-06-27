@@ -89,7 +89,7 @@ func updateAppliance(appliance Appliance) error {
 		status=?, 
 		date_bought=?, 
 		appliance_name=?
-		WHERE applianceId=?`,
+		WHERE appliance_id=?`,
 		appliance.SerialNumber,
 		appliance.Brand,
 		appliance.Model,

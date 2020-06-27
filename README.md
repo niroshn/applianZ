@@ -1,1 +1,1 @@
-# applianZ
+# ApplianZ
