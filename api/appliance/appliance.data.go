@@ -131,3 +131,38 @@ func insertAppliance(appliance Appliance) (int, error) {
 	}
 	return int(insertID), nil
 }
+
+func searchAppliance(serialNumber string, brand string, model string, status string, dateBought string) (*Appliance, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+	row := database.DbConn.QueryRowContext(ctx, `SELECCT * FROM appliances WHERE  
+	serial_number = ? AND
+	brand = ? AND
+	model = ? AND
+	status = ? AND
+	date_bought = ? 
+	`,
+		serialNumber,
+		brand,
+		model,
+		status,
+		dateBought,
+	)
+	appliance := &Appliance{}
+	err := row.Scan(
+		&appliance.ApplianceID,
+		&appliance.SerialNumber,
+		&appliance.Brand,
+		&appliance.Model,
+		&appliance.Status,
+		&appliance.DateBought,
+		&appliance.ApplianceName,
+	)
+	if err == sql.ErrNoRows {
+		return nil, nil
+	} else if err != nil {
+		log.Println(err)
+		return nil, err
+	}
+	return appliance, nil
+}
