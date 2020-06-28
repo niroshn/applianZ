@@ -11,7 +11,7 @@ var DbConn *sql.DB
 // SetupDatabase
 func SetupDatabase() {
 	var err error
-	DbConn, err = sql.Open("mysql", "root:7870@VvV@tcp(127.0.0.1:3306)/applianzdb")
+	DbConn, err = sql.Open("mysql", "root:@7870abcd@tcp(database-1.c9xxxtihqjho.us-east-1.rds.amazonaws.com:3306)/applianzdb")
 	if err != nil {
 		log.Fatal(err)
 	}
