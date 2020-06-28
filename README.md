@@ -1,6 +1,5 @@
 # ApplianZ
 
-Setup Application
 
 ## Prerequisite
 - `Golang`
