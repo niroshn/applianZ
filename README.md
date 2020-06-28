@@ -4,10 +4,12 @@
 ## Prerequisite
 - `Golang`
 - `npm`
+- `Mysql`
 
 ## Used Technologies
 - `Golang` - Backend API
 - `Angular` - Front End Framework
+- `MySQL` - Database
 
 
 ## Getting Start
@@ -18,6 +20,9 @@
 
 Run Development Environment 
 - `cd api`
+Setup database
+- `mysql -u root -p applianzdb > ./config/appliance.sql`
+Run Application
 - `go run ./main.go`
 
 open api endpoint on `http:localhost:5000`
